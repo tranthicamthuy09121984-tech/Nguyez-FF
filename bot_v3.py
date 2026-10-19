@@ -3,7 +3,6 @@ import os
 import discord
 from discord.ext import commands
 import google.generativeai as genai
-from keep_alive import keep_alive
 import random
 
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
@@ -65,5 +64,4 @@ async def taixiu(interaction: discord.Interaction, chon: str):
 async def ping(interaction: discord.Interaction):
     await interaction.response.send_message(f"Pong {round(bot.latency*1000)}ms")
 
-keep_alive()
 bot.run(os.getenv("DISCORD_TOKEN"))
