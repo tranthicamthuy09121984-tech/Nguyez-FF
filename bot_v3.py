@@ -3,6 +3,21 @@ import os
 import discord
 from discord.ext import commands
 import random
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+PORT = int(os.environ.get("PORT", 10000))
+
+class Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Meo meo maoooo!! Bot UP - nguyez-ff.onrender.com")
+
+def start_web():
+    HTTPServer(('0.0.0.0', PORT), Handler).serve_forever()
+
+threading.Thread(target=start_web, daemon=True).start()
 
 intents = discord.Intents.default()
 intents.message_content = True
