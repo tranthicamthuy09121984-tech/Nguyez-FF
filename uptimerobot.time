@@ -1,0 +1,30 @@
+code = """Import UptimeRobot
+Import web
+Import run
+
+UptimeRobot = "https://dashboard.uptimerobot.com/monitors/804336669"
+auto.run("UptimeRobot")
+auto.deploy("UptimeRobot")
+
+# Meo meo maoooo!! - Code chạy thật ở dưới
+import time
+import webbrowser
+
+print("Mèo đang kết nối UptimeRobot...")
+print(f"Monitor: {UptimeRobot}")
+
+# Mở link dashboard
+try:
+    webbrowser.open(UptimeRobot)
+    print("Đã mở dashboard UptimeRobot!")
+except:
+    pass
+
+# Auto run canh
+print("auto.run('UptimeRobot') -> Đang canh...")
+print("auto.deploy('UptimeRobot') -> Đã deploy!")
+
+while True:
+    print("Mèo đang canh UptimeRobot.time - UP - Meo meo maoooo!!")
+    time.sleep(60)
+"""
